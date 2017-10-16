@@ -23,7 +23,7 @@ java -jar target/wishlister-0.0.1-SNAPSHOT.jar
 Step 3
 -----
 
-Acess [http://localhost:3000/](http://localhost:3000/)
+Access [http://localhost:3000/](http://localhost:3000/)
 
 Result
 --------------
