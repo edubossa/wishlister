@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wishlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/card.css" th:href="@{/css/card.css}" />
+</head>
+<body>
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(wishlist)}">
+            <h2>Wishlist</h2>
+            <ul class="list-inline">
+                <li th:each="vanue : ${wishlist}">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card hovercard">
+                                <div class="cardheader">
+                                    <img th:src="${vanue.vanuePhoto}" />
+                                </div>
+                                <div class="avatar">
+                                    <img th:src="${vanue.userPhoto}" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">
+                                        <label th:text="${vanue.vanueName}" />
+                                    </div>
+                                    <div class="desc"><label th:text="${vanue.userName}" /></div>
+                                </div>
+                                <div class="bottom">
+                                    <a class="btn btn-danger btn-sm" rel="publisher" th:href="@{'/venue/remove/?id='+${vanue.id}}">
+                                        <lebel>-</lebel>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div th:if="${not #lists.isEmpty(recentVenues)}">
+            <h2>Recent</h2>
+            <ul class="list-inline">
+                <li th:each="vanue : ${recentVenues}">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card hovercard">
+                                <div class="cardheader">
+                                    <img th:src="${vanue.vanuePhoto}" />
+                                </div>
+                                <div class="avatar">
+                                    <img th:src="${vanue.userPhoto}" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">
+                                        <label th:text="${vanue.vanueName}" />
+                                    </div>
+                                    <div class="desc"><label th:text="${vanue.userName}" /></div>
+                                </div>
+                                <div class="bottom">
+                                    <a class="btn btn-primary btn-sm" rel="publisher" th:href="@{'/venue/add/?id='+${vanue.id}}">
+                                        <lebel>+</lebel>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
